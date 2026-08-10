@@ -13,15 +13,13 @@ import "react-pdf/dist/esm/Page/AnnotationLayer.css";
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
 
 function ResumeNew() {
-  const [width, setWidth] = useState(1200);
+  const [width, setWidth] = useState(window.innerWidth);
   const [numPages, setNumPages] = useState(null);
 
   useEffect(() => {
     const handleResize = () => {
       setWidth(window.innerWidth);
     };
-
-    setWidth(window.innerWidth);
 
     window.addEventListener("resize", handleResize);
 
@@ -30,34 +28,24 @@ function ResumeNew() {
     };
   }, []);
 
+  // Keep the PDF inside the browser width
+  const resumeWidth =
+    width >= 1200
+      ? 900
+      : width >= 768
+      ? width - 80
+      : width - 30;
+
   return (
-    <Container fluid className="resume-section">
+    <div>
       <Particle />
 
       <Container>
-        <Row
-          style={{
-            justifyContent: "center",
-            position: "relative",
-            marginBottom: "30px",
-          }}
-        >
-          <Button
-            variant="primary"
-            href={pdf}
-            target="_blank"
-            rel="noreferrer"
-            style={{ maxWidth: "250px" }}
-          >
-            <AiOutlineDownload />
-            &nbsp; Download CV
-          </Button>
-        </Row>
 
         <Row className="resume">
           <Document
             file={pdf}
-            className="d-flex justify-content-center"
+            className="resume-document"
             loading="Loading CV..."
             error="Unable to load CV."
             onLoadSuccess={({ numPages }) => setNumPages(numPages)}
@@ -66,12 +54,13 @@ function ResumeNew() {
               <Page
                 key={`resume-page-${index + 1}`}
                 pageNumber={index + 1}
-                scale={width > 786 ? 1.5 : 0.6}
+                width={resumeWidth}
+                renderTextLayer={false}
+                renderAnnotationLayer={false}
               />
             ))}
           </Document>
         </Row>
-
         <Row
           style={{
             justifyContent: "center",
@@ -91,7 +80,7 @@ function ResumeNew() {
           </Button>
         </Row>
       </Container>
-    </Container>
+    </div>
   );
 }
 
