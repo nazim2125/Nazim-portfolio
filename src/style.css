@@ -759,3 +759,23 @@ button:focus {
 .fork-btn-inner::after {
   display: none !important;
 }
+.about-profile-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.about-profile-image img {
+  width: 330px;
+  height: 330px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 0 35px rgba(192, 132, 245, 0.45);
+  transition: all 0.3s ease;
+}
+
+.about-profile-image img:hover {
+  transform: scale(1.04);
+  box-shadow: 0 0 50px rgba(192, 132, 245, 0.7);
+}

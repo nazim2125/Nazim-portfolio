@@ -57,6 +57,7 @@ function Projects() {
               isBlog={false}
               title="Playwright E-Commerce Automation"
               description="Built an end-to-end Playwright automation framework for an e-commerce application using JavaScript. Automated critical user journeys including registration, login, product search, product selection, cart management, checkout, order workflows, and account management. Implemented reusable Page Object Model components and structured test suites for functional, smoke, regression, and end-to-end testing. Added cross-browser testing with screenshots, videos, and trace capture for failed tests to simplify debugging and improve test reliability."
+              ghLink="https://github.com/nazim2125/playwrightEcommerceTests"
             />
           </Col>
         </Row>

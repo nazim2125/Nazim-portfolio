@@ -18,10 +18,9 @@ function ProjectCards(props) {
             variant="primary"
             href={props.ghLink}
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
           >
-            <BsGithub /> &nbsp;
-            GitHub
+            <BsGithub /> &nbsp; GitHub
           </Button>
         )}
       </Card.Body>
