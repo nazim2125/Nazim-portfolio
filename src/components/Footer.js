@@ -1,41 +1,28 @@
 import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
-import { AiFillGithub, AiFillLinkedin } from "react-icons/ai";
+import { AiFillGithub, AiFillLinkedin, AiOutlineMail } from "react-icons/ai";
+import { profile } from "../data/portfolioData";
 
 function Footer() {
-  const year = new Date().getFullYear();
-
   return (
-    <Container fluid className="footer">
-      <Row>
-        <Col md={12} className="footer-copywright">
-          <h3>Designed and Developed by Mohd Nazim Rasalat</h3>
-          <p>Copyright © {year} Mohd Nazim Rasalat</p>
-        </Col>
-
-        <Col md={12} className="footer-copywright">
-          <a
-            href="https://github.com/nazim2125"
-            style={{ color: "white", marginRight: "20px" }}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="GitHub profile"
-          >
-            <AiFillGithub size={30} />
-          </a>
-
-          <a
-            href="https://www.linkedin.com/in/nazim21/"
-            style={{ color: "white" }}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="LinkedIn profile"
-          >
-            <AiFillLinkedin size={30} />
-          </a>
-        </Col>
-      </Row>
-    </Container>
+    <footer className="footer">
+      <div>
+        <h2>{profile.name}</h2>
+        <p>{profile.title}</p>
+        <span>Quality through automation.</span>
+      </div>
+      <nav aria-label="Footer links">
+        <a href={profile.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">
+          <AiFillGithub aria-hidden="true" />
+        </a>
+        <a href={profile.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
+          <AiFillLinkedin aria-hidden="true" />
+        </a>
+        <a href={`mailto:${profile.email}`} aria-label="Email Mohd Nazim Rasalat">
+          <AiOutlineMail aria-hidden="true" />
+        </a>
+      </nav>
+      <small>© 2026 Mohd Nazim Rasalat</small>
+    </footer>
   );
 }
 

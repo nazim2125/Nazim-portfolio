@@ -2,124 +2,115 @@ import React, { useEffect, useState } from "react";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import Container from "react-bootstrap/Container";
-import Button from "react-bootstrap/Button";
-import { Link } from "react-router-dom";
+import resumePdf from "../Assets/Mohd Nazim Rasalat QA Automation Engineer CV.pdf";
+import { AiFillGithub, AiFillLinkedin, AiOutlineDownload } from "react-icons/ai";
+import { BsMoon, BsSun } from "react-icons/bs";
+import { profile } from "../data/portfolioData";
 
-import {
-  AiFillGithub,
-  AiOutlineHome,
-  AiOutlineFundProjectionScreen,
-  AiOutlineUser,
-} from "react-icons/ai";
-
-import { CgFileDocument } from "react-icons/cg";
+const navLinks = [
+  ["home", "Home"],
+  ["about", "About"],
+  ["skills", "Skills"],
+  ["experience", "Experience"],
+  ["projects", "Projects"],
+  ["testing", "Testing Expertise"],
+  ["contact", "Contact"],
+];
 
 function NavBar() {
   const [expand, updateExpanded] = useState(false);
   const [navColour, updateNavbar] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
+  const [theme, setTheme] = useState("dark");
+
+  useEffect(() => {
+    document.documentElement.dataset.theme = theme;
+  }, [theme]);
 
   useEffect(() => {
     const scrollHandler = () => {
-      if (window.scrollY >= 20) {
-        updateNavbar(true);
-      } else {
-        updateNavbar(false);
+      updateNavbar(window.scrollY >= 20);
+
+      const sections = navLinks.map(([id]) => document.getElementById(id)).filter(Boolean);
+      let current = sections[0];
+      sections.forEach((section) => {
+        if (section.getBoundingClientRect().top <= 120) {
+          current = section;
+        }
+      });
+
+      if (current) {
+        setActiveSection(current.id);
       }
     };
 
-    window.addEventListener("scroll", scrollHandler);
+    scrollHandler();
+    window.addEventListener("scroll", scrollHandler, { passive: true });
 
     return () => {
       window.removeEventListener("scroll", scrollHandler);
     };
   }, []);
 
+  const closeMenu = () => updateExpanded(false);
+
   return (
     <Navbar
       expanded={expand}
       fixed="top"
-      expand="md"
-      className={navColour ? "sticky" : "navbar"}
+      expand="lg"
+      className={navColour ? "site-nav sticky" : "site-nav"}
     >
       <Container>
-        <Navbar.Brand
-          as={Link}
-          to="/"
-          className="d-flex"
-          onClick={() => updateExpanded(false)}
-        >
-          <span className="purple">Nazim</span>
+        <Navbar.Brand href="#home" className="brand-mark" onClick={closeMenu}>
+          Nazim.dev
         </Navbar.Brand>
 
         <Navbar.Toggle
           aria-controls="responsive-navbar-nav"
-          onClick={() => {
-            updateExpanded(expand ? false : "expanded");
-          }}
-        />
+          aria-label="Toggle navigation"
+          onClick={() => updateExpanded(expand ? false : "expanded")}
+        >
+          <span />
+          <span />
+          <span />
+        </Navbar.Toggle>
 
         <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="ms-auto">
-            {/* Home */}
-            <Nav.Item>
-              <Nav.Link
-                as={Link}
-                to="/"
-                onClick={() => updateExpanded(false)}
-              >
-                <AiOutlineHome style={{ marginBottom: "2px" }} /> Home
-              </Nav.Link>
-            </Nav.Item>
-
-            {/* About */}
-            <Nav.Item>
-              <Nav.Link
-                as={Link}
-                to="/about"
-                onClick={() => updateExpanded(false)}
-              >
-                <AiOutlineUser style={{ marginBottom: "2px" }} /> About
-              </Nav.Link>
-            </Nav.Item>
-
-            {/* Projects */}
-            <Nav.Item>
-              <Nav.Link
-                as={Link}
-                to="/project"
-                onClick={() => updateExpanded(false)}
-              >
-                <AiOutlineFundProjectionScreen
-                  style={{ marginBottom: "2px" }}
-                />{" "}
-                Projects
-              </Nav.Link>
-            </Nav.Item>
-
-            {/* Resume */}
-            <Nav.Item>
-              <Nav.Link
-                as={Link}
-                to="/resume"
-                onClick={() => updateExpanded(false)}
-              >
-                <CgFileDocument style={{ marginBottom: "2px" }} /> Resume
-              </Nav.Link>
-            </Nav.Item>
-
-            {/* GitHub */}
-            <Nav.Item className="fork-btn">
-              <Button
-                href="https://github.com/nazim2125"
-                target="_blank"
-                rel="noreferrer"
-                className="fork-btn-inner"
-              >
-                <AiFillGithub style={{ fontSize: "1.3em" }} />{" "}
-                GitHub
-              </Button>
-            </Nav.Item>
+          <Nav className="ms-auto nav-links">
+            {navLinks.map(([id, label]) => (
+              <Nav.Item key={id}>
+                <Nav.Link
+                  href={`#${id}`}
+                  className={activeSection === id ? "active" : ""}
+                  onClick={closeMenu}
+                >
+                  {label}
+                </Nav.Link>
+              </Nav.Item>
+            ))}
           </Nav>
+
+          <div className="nav-actions">
+            <a href={profile.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">
+              <AiFillGithub aria-hidden="true" />
+            </a>
+            <a href={profile.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
+              <AiFillLinkedin aria-hidden="true" />
+            </a>
+            <a className="resume-nav-btn" href={resumePdf} download>
+              <AiOutlineDownload aria-hidden="true" />
+              Resume
+            </a>
+            <button
+              className="theme-toggle"
+              type="button"
+              onClick={() => setTheme((current) => (current === "dark" ? "light" : "dark"))}
+              aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
+            >
+              {theme === "dark" ? <BsSun aria-hidden="true" /> : <BsMoon aria-hidden="true" />}
+            </button>
+          </div>
         </Navbar.Collapse>
       </Container>
     </Navbar>
