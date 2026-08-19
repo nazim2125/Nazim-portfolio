@@ -29,12 +29,8 @@ import {
   SiPlaywright,
   SiOpenjdk,
   SiTypescript,
-  SiTestng,
   SiPostman,
-  SiJenkins,
-  SiGithubactions,
   SiMysql,
-  SiApachejmeter,
   SiTestinglibrary
 } from "react-icons/si";
 import { BsSpeedometer2 } from "react-icons/bs";
