@@ -9,6 +9,7 @@ import {
   stats,
   testingExpertise,
   workflowSteps,
+  personalProjects,
 } from "../../data/portfolioData";
 import {
   AiFillGithub,
@@ -23,16 +24,29 @@ import {
   AiOutlineRocket,
   AiOutlineSafety,
 } from "react-icons/ai";
+import {
+  SiSelenium,
+  SiPlaywright,
+  SiOpenjdk,
+  SiTypescript,
+  SiTestng,
+  SiPostman,
+  SiJenkins,
+  SiGithubactions,
+  SiMysql,
+  SiApachejmeter,
+  SiTestinglibrary
+} from "react-icons/si";
 import { BsSpeedometer2 } from "react-icons/bs";
 import { FiExternalLink } from "react-icons/fi";
 
 const stackNodes = [
-  ["TEST AUTOMATION", "framework strategy"],
-  ["WEB", "Selenium / Playwright"],
-  ["API", "REST Assured / Postman"],
-  ["DATABASE", "SQL"],
-  ["CI/CD", "Jenkins / GitHub Actions"],
-  ["REPORTING", "Test Results / Logs"],
+  ["PLAN", "Requirements / Test Scenarios"],
+  ["BUILD", "Selenium / Playwright"],
+  ["EXECUTE", "TestNG / Cucumber"],
+  ["VERIFY", "REST Assured / SQL"],
+  ["DELIVER", "Jenkins / GitHub Actions"],
+  ["IMPROVE", "Reports / Defects"],
 ];
 
 const ciCdFlows = [
@@ -63,6 +77,30 @@ function PillList({ items }) {
     </div>
   );
 }
+const techIcons = {
+  Selenium: SiSelenium,
+  Playwright: SiPlaywright,
+  Java: SiOpenjdk,
+  TypeScript: SiTypescript,
+  TestNG: SiTestinglibrary,
+  "REST Assured": AiOutlineApi,
+  Postman: SiPostman,
+  SQL: SiMysql,
+};
+const TechStack = ({ items }) => (
+  <div className="tech-stack">
+    {items.map((tech) => {
+      const Icon = techIcons[tech];
+
+      return (
+        <span className="tech-pill" key={tech}>
+          {Icon && <Icon className="tech-icon" />}
+          <span>{tech}</span>
+        </span>
+      );
+    })}
+  </div>
+);
 
 function AutomationVisual() {
   const steps = ["Test Case", "UI Automation", "API Validation", "Database Validation", "CI/CD Pipeline", "Quality Release"];
@@ -81,7 +119,6 @@ function AutomationVisual() {
           </div>
         ))}
       </div>
-      <PillList items={["Selenium", "Playwright","TestNG", "REST Assured", "SQL", "Jenkins", "GitHub Actions"]} />
     </div>
   );
 }
@@ -93,10 +130,13 @@ function Home() {
     <main className="portfolio-page">
       <section className="hero-section section-shell" id="home">
         <div className="hero-copy reveal">
-          <span className="status-badge">SDET • QA AUTOMATION ENGINEER</span>
-          <h1>Building Reliable Software Through Automation & Quality Engineering.</h1>
+          <span className="status-badge">SDET | QA AUTOMATION ENGINEER</span>
+          <h1>
+           Building Reliable Software Through{" "}
+           <span className="hero-highlight">Quality Engineering.</span>
+           </h1>
           <p className="hero-summary">{profile.summary}</p>
-          <PillList items={profile.stack} />
+          <TechStack items={profile.stack} />
           <div className="hero-actions">
             <a className="primary-btn" href="#projects">
               <AiOutlineCheckCircle aria-hidden="true" />
@@ -129,16 +169,20 @@ function Home() {
       <section className="about-panel section-shell" id="about">
         <SectionHeading
           eyebrow="About"
-          title="Quality Engineering With an Automation-First Mindset"
+          title="Quality Engineering With a Manual + Automation Mindset"
           text="I work across UI automation, API testing, database validation, functional testing, regression coverage, cross-browser checks, CI/CD execution, and performance testing for enterprise web applications."
         />
         <div className="about-grid">
           <div className="about-copy reveal">
             <p>
-              My QA experience spans E-Retail, IT Service Management, and Healthcare Recruitment domains. I design automation that gives teams faster regression feedback while still validating the real behavior users and business teams depend on.
+              Quality Engineering With a Manual + Automation Mindset
+              My QA experience spans E-Retail, IT Service Management, and Healthcare Recruitment domains, where I design automation that gives teams faster regression feedback without losing sight of real user and business behavior.
             </p>
             <p>
-              I have built and maintained Selenium WebDriver frameworks with Java and TestNG, Playwright automation with TypeScript, REST API checks using REST Assured and Postman, and SQL-based backend verification.
+              I combine manual testing fundamentals with automation using Selenium WebDriver, Java, Playwright, TypeScript, REST Assured, Postman, and SQL — covering regression, cross-browser, CI/CD execution, and performance testing.
+            </p>
+            <p>
+              I believe effective QA is not about choosing manual or automation—it is about choosing the right testing approach for the problem. My goal is to combine manual testing expertise with reliable automation to improve product quality, accelerate feedback, and give teams confidence to release.
             </p>
           </div>
           <div className="stats-grid reveal">
@@ -155,8 +199,8 @@ function Home() {
       <section className="section-shell" id="skills">
         <SectionHeading
           eyebrow="Skills"
-          title="Automation Technology Stack"
-          text="Grouped by the way recruiters and engineering teams evaluate SDET capability: framework design, programming, API coverage, database validation, CI/CD, and testing depth."
+          title="QA & Automation Technology Stack"
+          text="From test cases to automation, API validation, database checks, and CI/CD - focused on reliable software quality."
         />
         <div className="skill-grid">
           {skillGroups.map((group) => (
@@ -176,7 +220,7 @@ function Home() {
         <SectionHeading
           eyebrow="Automation Stack"
           title="My Automation Stack"
-          text="A layered view of how I connect web, API, database, CI/CD, and reporting activities into continuous quality checks."
+          text="From test design to continuous integration, connecting UI automation, API validation, database checks, and test reporting."
         />
         <div className="stack-map reveal">
           {stackNodes.map(([title, detail], index) => (
@@ -193,7 +237,7 @@ function Home() {
         <SectionHeading
           eyebrow="Experience"
           title="Enterprise QA Automation Experience"
-          text="Current role focused on practical automation coverage, CI/CD execution, API validation, and release confidence."
+          text="Building and maintaining reliable UI, API, and database test automation with CI/CD integration for faster regression testing and release validation."
         />
         <article className="timeline-card reveal">
           <div className="timeline-marker" aria-hidden="true" />
@@ -220,36 +264,115 @@ function Home() {
         </article>
       </section>
 
-      <section className="section-shell" id="projects">
-        <SectionHeading
-          eyebrow="Projects"
-          title="QA Projects Built Around Real Testing Problems"
-          text="Three production-domain projects showing UI automation, API testing, SQL validation, CI/CD execution, and performance testing."
-        />
-        <div className="project-grid">
-          {projects.map((project) => (
-            <article className="premium-project-card reveal" key={project.name}>
-              <div className="project-card-header">
-                <span>{project.domain}</span>
-                <h3>{project.name}</h3>
-                <p>{project.role}</p>
-              </div>
-              <div className="module-strip">
-                {project.modules.map((module) => (
-                  <span key={module}>{module}</span>
-                ))}
-              </div>
-              <p className="project-approach">{project.approach}</p>
-              <ul className="achievement-list compact">
-                {project.achievements.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-              <PillList items={project.stack} />
-            </article>
+        {/* =========================
+    PROFESSIONAL PROJECTS
+========================= */}
+
+<section className="section-shell" id="projects">
+  <SectionHeading
+    eyebrow="Professional Projects"
+    title="Enterprise QA Projects"
+    text="Real-world testing experience across UI automation, API validation, database testing, CI/CD, and performance testing."
+  />
+
+  <div className="project-grid">
+    {projects.map((project) => (
+      <article
+        className="premium-project-card reveal"
+        key={project.name}
+      >
+        <div className="project-card-header">
+          <span>{project.domain}</span>
+          <h3>{project.name}</h3>
+          <p>{project.role}</p>
+        </div>
+
+        <div className="module-strip">
+          {project.modules.map((module) => (
+            <span key={module}>{module}</span>
           ))}
         </div>
-      </section>
+
+        <p className="project-approach">
+          {project.approach}
+        </p>
+
+        <ul className="achievement-list compact">
+          {project.achievements.map((item) => (
+            <li key={item}>{item}</li>
+          ))}
+        </ul>
+
+        <PillList items={project.stack} />
+      </article>
+    ))}
+  </div>
+</section>
+
+
+{/* =========================
+    PERSONAL PROJECTS
+========================= */}
+
+<section className="section-shell" id="personal-projects">
+  <SectionHeading
+    eyebrow="Personal Projects"
+    title="Projects I Build Outside of Work"
+    text="Independent projects where I apply automation, API testing, software development, and modern engineering practices."
+  />
+
+  <div className="project-grid">
+    {personalProjects.map((project) => (
+      <article
+        className="premium-project-card reveal"
+        key={project.name}
+      >
+        <div className="project-card-header">
+          <span>{project.domain}</span>
+          <h3>{project.name}</h3>
+          <p>{project.role}</p>
+        </div>
+
+        <div className="module-strip">
+          {project.modules.map((module) => (
+            <span key={module}>{module}</span>
+          ))}
+        </div>
+
+        <p className="project-approach">
+          {project.approach}
+        </p>
+
+        <ul className="achievement-list compact">
+          {project.achievements.map((item) => (
+            <li key={item}>{item}</li>
+          ))}
+        </ul>
+
+        <PillList items={project.stack} />
+
+        {/* GitHub Button */}
+        {project.github && (
+          <div className="hero-links" aria-label="Professional profiles">
+            <a
+              href={project.github}
+              className="secondary-btn"
+              target="_blank"
+              rel="noreferrer"
+              aria-label={`View ${project.name} on GitHub`}
+            >
+              <AiFillGithub
+                className="github-icon"
+                aria-hidden="true"
+              />
+              <span>GitHub</span>
+            </a>
+          </div>
+        )}
+      </article>
+    ))}
+  </div>
+</section>
 
       <section className="section-shell" id="testing">
         <SectionHeading

@@ -63,7 +63,7 @@ function NavBar() {
     >
       <Container>
         <Navbar.Brand href="#home" className="brand-mark" onClick={closeMenu}>
-          Nazim.dev
+          Nazim.<span className="hero-highlight">dev</span>
         </Navbar.Brand>
 
         <Navbar.Toggle

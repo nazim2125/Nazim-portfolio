@@ -1165,3 +1165,45 @@ pre {
     transition-duration: 0.01ms !important;
   }
 }
+.hero-copy h1 {
+  color: #f5f7fa;
+}
+
+.hero-highlight {
+  background: linear-gradient(90deg, #2f80ff, #1769e0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 24px;
+}
+
+.tech-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 14px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--text-primary);
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.tech-pill:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.tech-icon {
+  width: 17px;
+  height: 17px;
+  color: var(--accent);
+  flex-shrink: 0;
+}
