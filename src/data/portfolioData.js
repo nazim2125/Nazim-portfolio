@@ -8,7 +8,7 @@ export const profile = {
   github: "https://github.com/nazim2125",
   linkedin: "https://www.linkedin.com/in/nazim21/",
   summary:
-    "QA Engineer with 2+ years of experience in Manual and Automation Testing, specializing in UI automation, API testing, database validation, and end-to-end testing for enterprise applications.",
+    "QA Engineer with 2+ years of experience in Manual and Automation Testing across enterprise web applications, covering UI automation, API testing, database validation, functional and regression testing, and end-to-end quality assurance.",
   stack: 
   ["Selenium","Playwright","Java","TypeScript","TestNG","REST Assured","Postman","SQL",]
 };
@@ -23,18 +23,18 @@ export const stats = [
 export const skillGroups = [
   {
     title: "Automation Frameworks",
-    description: "Building maintainable UI automation frameworks for reliable functional and regression testing.",
-    items: ["Selenium WebDriver", "Playwright", "Appium", "TestNG", "Cucumber BDD", "Page Object Model"],
+    description: "Building maintainable automation for functional, regression, and end-to-end test coverage.",
+    items: ["Selenium WebDriver", "Playwright", "Appium", "TestNG", "Cucumber BDD", "Page Object Model","Data-Driven Framework" , "Hybrid Framework"],
   },
   {
     title: "Programming",
-    description: "Languages used for test automation, scripting, validation, and test data handling.",
+    description: "Languages used for test automation, scripting, API validation, and database checks.",
     items: ["Java", "TypeScript", "JavaScript", "Python", "SQL"],
   },
   {
     title: "API Testing",
     description: "Automating and validating REST APIs across functional, negative, CRUD, and schema-based scenarios.",
-    items: ["REST Assured", "Postman", "API Automation", "JSON Schema Validation"],
+    items: ["REST Assured", "Postman", "JSON Schema Validation"],
   },
   {
     title: "Database Testing",
@@ -49,7 +49,7 @@ export const skillGroups = [
   {
     title: "Testing",
     description: "Manual and automated testing across functional, regression, release, and performance workflows.",
-    items: ["Functional", "Regression", "Smoke", "Sanity", "End-to-End", "Cross-Browser", "API", "Database", "Performance", "Load", "Stress"],
+    items: ["Manual Testing","Functional", "Regression", "Smoke", "Sanity", "End-to-End", "Cross-Browser", "API", "Database", "Performance", "Load", "Stress"],
   },
   {
     title: "Tools",
@@ -64,20 +64,20 @@ export const experience = {
   location: "Noida",
   duration: "June 2024 - Present",
   highlights: [
-    "Designed, executed and automated 300+ UI, API and database test cases.",
-    "Developed and maintained Selenium WebDriver and Playwright automation frameworks.",
-    "Used Java, TypeScript, TestNG and Page Object Model.",
-    "Performed Manual, Functional, Regression, Smoke, API, Database and Cross-Browser Testing.",
-    "Validated REST APIs using REST Assured and Postman.",
-    "Verified backend data using SQL.",
-    "Configured GitHub Actions for Playwright automation.",
-    "Used Jenkins for scheduled Selenium regression runs.",
-    "Collaborated with developers, business analysts and product owners.",
-    "Participated in sprint planning, defect triage and release validation.",
-    "Used AI-assisted tools for test ideas, edge cases, test data and failure-log analysis.",
+    "Designed, executed, and automated 300+ UI, API, and database test cases across enterprise applications, covering critical business and end-to-end workflows.",
+    "Performed manual and automation testing across Functional, Regression, Smoke, Sanity, API, Database, End-to-End, and Cross-Browser testing.",
+    "Developed and maintained Selenium WebDriver with Java and Playwright with TypeScript automation frameworks using TestNG and Page Object Model (POM).",
+    "Validated REST APIs using REST Assured and Postman, including functional and negative test scenarios.",
+    "Performed SQL-based database validation to verify backend data, application consistency, and API-to-database results.",
+    "Integrated automated tests into CI/CD workflows, using GitHub Actions for Playwright and Jenkins for scheduled Selenium regression execution.",
+    "Designed reusable automation components and test scenarios to improve regression coverage, maintainability, and repeatable test execution.",
+    "Collaborated with developers, business analysts, and product owners during sprint planning, defect triage, test execution, and release validation.",
+    "Logged, reproduced, tracked, and verified defects through Jira, working with development teams through resolution.",
+    "Used AI-assisted testing tools to generate test ideas, identify edge cases, prepare test data, and analyze automation failure logs."
   ],
   metrics: ["300+ test cases", "3 domains", "UI + API + DB coverage"],
   tools: ["Selenium", "Playwright", "Java", "TypeScript", "TestNG", "Page Object Model(POM)","REST Assured", "Postman", "SQL", "Jenkins", "GitHub Actions", "Jira"],
+  domain:["E-Retail", "IT Help Desk Portal" ,"Healthcare Recruitment Platform"],
 };
 
 export const projects = [
@@ -102,7 +102,7 @@ export const projects = [
     name: "Find Us Here - IT Help Desk Portal",
     role: "QA Automation Engineer",
     domain: "IT Service Management",
-    stack: ["Selenium WebDriver", "Java", "TestNG", "Maven", "POM", "Cucumber BDD", "REST Assured", "JMeter", "Jira", "Jenkins"],
+    stack: ["Selenium WebDriver", "Java", "TestNG", "Maven", "POM", "Cucumber BDD", "REST Assured", "Jira", "Jenkins"],
     modules: ["Tickets", "CRUD APIs", "Validation", "Load Tests"],
     approach: "Hybrid Selenium framework, API automation, data-driven tests, and JMeter-based load and stress testing.",
     achievements: [
@@ -110,8 +110,7 @@ export const projects = [
       "Parameterized test data using Apache POI and Excel datasets.",
       "Automated 70+ REST Assured API scenarios.",
       "Covered CRUD, validation and negative test cases.",
-      "Performed Load and Stress testing using JMeter.",
-      "Identified response-time bottlenecks under concurrent load.",
+      "Verified backend data using SQL.",
       "Maintained Maven dependencies.",
       "Automated regression execution through Jenkins CI/CD.",
     ],
@@ -120,7 +119,7 @@ export const projects = [
     name: "StaffDNA - Healthcare Recruitment Platform",
     role: "QA Automation Engineer",
     domain: "Healthcare Recruitment",
-    stack: ["Playwright", "TypeScript", "Page Object Model", "Cucumber BDD", "Postman", "SQL", "Jira", "GitHub Actions"],
+    stack: ["Playwright", "TypeScript", "Page Object Model", "Cucumber BDD", "Postman", "SQL", "Jmeter","Jira", "GitHub Actions"],
     modules: ["Recruitment Workflows", "Playwright Tests" ,"API Validation" ,"Test Reports"],
     approach: "Playwright UI automation, API checks, SQL validation, cross-browser testing, and GitHub Actions execution.",
     achievements: [
@@ -130,7 +129,8 @@ export const projects = [
       "Executed Smoke, Regression, Sanity and Functional Testing.",
       "Performed API and Cross-Browser testing.",
       "Validated REST APIs using Postman.",
-      "Verified backend data using SQL.",
+       "Performed Load and Stress testing using JMeter.",
+      "Identified response-time bottlenecks under concurrent load.",
       "Configured GitHub Actions to execute Playwright suites on every push.",
     ],
   },
@@ -269,23 +269,21 @@ export const testingExpertise = [
 ];
 
 export const workflowSteps = [
-  "Requirement",
-  "Test Planning",
-  "Test Case Design",
-  "UI Automation",
-  "API Testing",
-  "Database Validation",
-  "Cross-Browser Testing",
-  "CI/CD Execution",
-  "Defect Triage",
-  "Release Validation",
+  "Requirements & Business Rules",
+  "Test Planning & Coverage",
+  "Manual & Functional Testing",
+  "UI Test Automation",
+  "API & Database Testing",
+  "Cross-Browser & Performance",
+  "CI/CD Test Execution",
+  "Defect Triage & Release Validation",
 ];
 
 export const principles = [
-  ["01", "Automate Repetitive Work", "Move repeatable regression checks into reliable automation so manual testing focuses on judgment-heavy work."],
-  ["02", "Test at Multiple Layers", "Validate UI behavior, APIs, and database state instead of relying on a single testing layer."],
-  ["03", "Catch Defects Early", "Run smoke and automated checks close to code changes through CI/CD feedback loops."],
-  ["04", "Keep Frameworks Maintainable", "Use Page Object Model, clear fixtures, and readable test data to keep suites easier to evolve."],
-  ["05", "Validate Real User Workflows", "Prioritize the paths that matter to users and release confidence, not isolated happy-path checks only."],
-  ["06", "Make Quality Part of CI/CD", "Treat automation results, logs, and reports as part of the delivery pipeline."],
+  ["01", "Automate stable, repeatable regression scenarios so manual testing can focus on exploration, business logic, and edge cases."],
+  ["02", "Test Across Layers", "Validate the UI, APIs, and database rather than relying on a single layer of coverage."],
+  ["03", "Find Problems Early", "Use smoke checks and CI/CD automation to provide fast feedback around code changes and releases."],
+  ["04", "Build Maintainable Automation", "Use Page Object Model, reusable components, and structured test data to keep automation easier to maintain."],
+  ["05", "Prioritize Real User Workflows", "Focus coverage on critical business journeys, edge cases, and scenarios that directly affect release confidence."],
+  ["06", "Make Quality Part of Delivery", "Treat automated results, logs, defects, and regression feedback as part of the development and release process."],
 ];

@@ -8,7 +8,7 @@ function Footer() {
       <div>
         <h2>{profile.name}</h2>
         <p>{profile.title}</p>
-        <span>Quality through automation.</span>
+        <span>Quality through Manual and Automation.</span>
       </div>
       <nav aria-label="Footer links">
         <a href={profile.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">

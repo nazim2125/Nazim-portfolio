@@ -38,9 +38,9 @@ import { FiExternalLink } from "react-icons/fi";
 
 const stackNodes = [
   ["PLAN", "Requirements / Test Scenarios"],
-  ["BUILD", "Selenium / Playwright"],
-  ["EXECUTE", "TestNG / Cucumber"],
-  ["VERIFY", "REST Assured / SQL"],
+  ["TEST", "Manual Testing / UI Automation"],
+  ["VALIDATE", "API Testing / Database Validation"],
+  ["AUTOMATE", "Selenium / Playwright / TestNG"],
   ["DELIVER", "Jenkins / GitHub Actions"],
   ["IMPROVE", "Reports / Defects"],
 ];
@@ -50,7 +50,7 @@ const ciCdFlows = [
   ["Deployment", "Jenkins", "Selenium Regression", "Test Results"],
 ];
 
-const apiFlow = ["REST API", "Request", "Response", "Status Code", "Schema Validation", "Database Validation"];
+const apiFlow = ["Request", "Response", "Status Code", "Validation", "Validation"];
 
 function SectionHeading({ eyebrow, title, text }) {
   return (
@@ -99,18 +99,31 @@ const TechStack = ({ items }) => (
 );
 
 function AutomationVisual() {
-  const steps = ["Test Case", "UI Automation", "API Validation", "Database Validation", "CI/CD Pipeline", "Quality Release"];
+  const steps = [
+    "Manual Testing",
+    "Test Design",
+    "UI Automation",
+    "API Testing",
+    "Database Validation",
+    "CI/CD",
+    "Quality Release",
+  ];
 
   return (
-    <div className="automation-card reveal" aria-label="Automation pipeline">
+    <div
+      className="automation-card reveal"
+      aria-label="QA testing and automation pipeline"
+    >
       <div className="automation-card-header">
-        <span>Automation Pipeline</span>
+        <span>QA Testing & Automation</span>
         <AiOutlineRocket aria-hidden="true" />
       </div>
+
       <div className="pipeline">
         {steps.map((step, index) => (
           <div className="pipeline-step" key={step}>
             <span>{step}</span>
+
             {index < steps.length - 1 && <i aria-hidden="true" />}
           </div>
         ))}
@@ -128,8 +141,8 @@ function Home() {
         <div className="hero-copy reveal">
           <span className="status-badge">SDET | QA AUTOMATION ENGINEER</span>
           <h1>
-           Building Reliable Software Through{" "}
-           <span className="hero-highlight">Quality Engineering.</span>
+           Making Software Reliable,{" "}
+           <span className="hero-highlight">From First Test to Final Release.</span>
            </h1>
           <p className="hero-summary">{profile.summary}</p>
           <TechStack items={profile.stack} />
@@ -165,20 +178,19 @@ function Home() {
       <section className="about-panel section-shell" id="about">
         <SectionHeading
           eyebrow="About"
-          title="Quality Engineering With a Manual + Automation Mindset"
-          text="I work across UI automation, API testing, database validation, functional testing, regression coverage, cross-browser checks, CI/CD execution, and performance testing for enterprise web applications."
+          title="Quality Engineering Across Manual Testing & Automation"
+          text="I work on enterprise applications where understanding the user journey, business rules, and failure scenarios is just as important as building reliable test coverage."
         />
         <div className="about-grid">
           <div className="about-copy reveal">
             <p>
-              Quality Engineering With a Manual + Automation Mindset
-              My QA experience spans E-Retail, IT Service Management, and Healthcare Recruitment domains, where I design automation that gives teams faster regression feedback without losing sight of real user and business behavior.
+              My QA experience spans E-Retail, IT Service Management, and Healthcare Recruitment, covering manual testing, UI automation, API testing, database validation, and end-to-end workflows. I use Selenium WebDriver with Java and Playwright with TypeScript for repeatable UI coverage, while REST Assured, Postman, and SQL help validate APIs and backend data.
             </p>
             <p>
-              I combine manual testing fundamentals with automation using Selenium WebDriver, Java, Playwright, TypeScript, REST Assured, Postman, and SQL — covering regression, cross-browser, CI/CD execution, and performance testing.
+              My testing approach covers functional, regression, smoke, sanity, cross-browser, API, database, and performance testing. I also integrate automation with Jenkins and GitHub Actions to support repeatable execution and faster feedback throughout the release cycle.
             </p>
             <p>
-              I believe effective QA is not about choosing manual or automation—it is about choosing the right testing approach for the problem. My goal is to combine manual testing expertise with reliable automation to improve product quality, accelerate feedback, and give teams confidence to release.
+              I use manual testing to explore behavior, challenge business scenarios, and uncover edge cases, then automate stable and repeatable workflows where it improves coverage and feedback. This allows me to balance hands-on QA analysis with maintainable automation and support more confident releases.
             </p>
           </div>
           <div className="stats-grid reveal">
@@ -195,8 +207,8 @@ function Home() {
       <section className="section-shell" id="skills">
         <SectionHeading
           eyebrow="Skills"
-          title="QA & Automation Technology Stack"
-          text="From test cases to automation, API validation, database checks, and CI/CD - focused on reliable software quality."
+          title="QA Engineering & Technology Stack"
+          text="From manual test design and exploratory testing to automation, API validation, database checks, and CI/CD execution."
         />
         <div className="skill-grid">
           {skillGroups.map((group) => (
@@ -214,9 +226,9 @@ function Home() {
 
       <section className="section-shell stack-section">
         <SectionHeading
-          eyebrow="Automation Stack"
-          title="My Automation Stack"
-          text="From test design to continuous integration, connecting UI automation, API validation, database checks, and test reporting."
+          eyebrow="QA Stack"
+          title="My QA Workflow"
+          text="From understanding requirements and designing test scenarios to automation, API/database validation, CI/CD execution, and defect feedback."
         />
         <div className="stack-map reveal">
           {stackNodes.map(([title, detail], index) => (
@@ -232,8 +244,8 @@ function Home() {
       <section className="section-shell" id="experience">
         <SectionHeading
           eyebrow="Experience"
-          title="Enterprise QA Automation Experience"
-          text="Building and maintaining reliable UI, API, and database test automation with CI/CD integration for faster regression testing and release validation."
+          title="QA Engineering Experience"
+          text="2+ years of hands-on experience combining manual testing, UI automation, API validation, database testing, and CI/CD across enterprise applications."
         />
         <article className="timeline-card reveal">
           <div className="timeline-marker" aria-hidden="true" />
@@ -256,6 +268,11 @@ function Home() {
               ))}
             </ul>
             <PillList items={experience.tools} />
+            <div className="metric-row">
+              {experience.domain.map((metric) => (
+                <span key={metric}>{metric}</span>
+              ))}
+            </div>
           </div>
         </article>
       </section>
@@ -402,8 +419,8 @@ function Home() {
       <section className="section-shell workflow-section">
         <SectionHeading
           eyebrow="Workflow"
-          title="Quality Engineering Workflow"
-          text="A practical route from requirement review to release validation, with automation placed where it improves confidence and feedback speed."
+          title="How I Approach Quality"
+          text="From understanding the requirement to validating the release, I combine manual testing, automation, API and database checks to find issues early and provide reliable release feedback."
         />
         <div className="workflow-track reveal">
           {workflowSteps.map((step, index) => (
@@ -417,7 +434,7 @@ function Home() {
 
       <section className="section-shell split-section">
         <div className="split-card reveal">
-          <SectionHeading eyebrow="CI/CD" title="Automation in CI/CD" />
+          <SectionHeading eyebrow="CI/CD" title="Automation That Runs With the Delivery Pipeline" />
           <div className="flow-columns">
             {ciCdFlows.map((flow) => (
               <div className="flow-card" key={flow[0]}>
@@ -427,7 +444,7 @@ function Home() {
               </div>
             ))}
           </div>
-          <p>GitHub Actions and Jenkins help run automated checks, regression testing, and continuous validation as part of delivery workflows.</p>
+          <p>I integrate automated tests into CI/CD workflows so regression checks run consistently and provide feedback before release.</p>
         </div>
         <div className="split-card reveal">
           <SectionHeading eyebrow="API" title="API Testing Dashboard" />
@@ -436,40 +453,38 @@ function Home() {
               <span key={step}>{step}</span>
             ))}
           </div>
-          <PillList items={["REST Assured", "Postman", "SQL", "JSON Schema Validation"]} />
+          <PillList items={["REST Assured", "Postman", "SQL", "JSON Validation"]} />
+          <br></br>
+          <p >I integrate automated tests into CI/CD workflows so regression checks run consistently and provide feedback before release.</p>
         </div>
+        
       </section>
 
       <section className="section-shell split-section">
         <div className="split-card reveal">
-          <SectionHeading eyebrow="Database" title="UI to API to Database Validation" />
+          <SectionHeading eyebrow="Database" title="Tracing Data From UI to Database" />
           <div className="layer-chain">
             <span><AiOutlineCode aria-hidden="true" /> UI</span>
             <span><AiOutlineApi aria-hidden="true" /> API</span>
             <span><AiOutlineDatabase aria-hidden="true" /> Database</span>
           </div>
-          <p>I validate backend data using SQL and compare consistency across the UI, API responses, and persisted database state.</p>
+          <p>I verify that data remains consistent across the application layers by comparing UI behavior, API responses, and persisted database records.</p>
           <pre aria-label="Demo SQL query"><code>{`SELECT order_id, status, updated_at
-FROM orders
-WHERE customer_id = 'DEMO_CUSTOMER_001';`}</code></pre>
+           FROM orders
+           WHERE customer_id = 'DEMO_CUSTOMER_001';`}</code></pre>
         </div>
         <div className="split-card reveal">
-          <SectionHeading eyebrow="Performance" title="Performance Testing" />
+          <SectionHeading eyebrow="Performance" title="Performance Testing With JMeter" />
           <div className="performance-grid">
             {["Load Testing", "Stress Testing", "Response Time", "Concurrent Users", "Bottleneck Identification"].map((item) => (
               <span key={item}><BsSpeedometer2 aria-hidden="true" /> {item}</span>
             ))}
           </div>
-          <p>Used JMeter on the IT Help Desk Portal project for load and stress testing around ticket-submission endpoints.</p>
+          <p>For the Healthcare Recruitment Platform, I used JMeter to evaluate ticket-submission endpoints under load and stress conditions, focusing on response times, concurrent users, and potential bottlenecks.</p>
         </div>
       </section>
 
       <section className="section-shell split-section">
-        <div className="split-card reveal">
-          <SectionHeading eyebrow="AI-Assisted Testing" title="Responsible AI Support for QA" />
-          <PillList items={["Test idea generation", "Edge-case identification", "Test data generation", "Failure-log analysis", "Debugging assistance"]} />
-          <p>AI-assisted tools support test thinking and analysis, while QA decisions, validation, and release judgment remain engineer-led.</p>
-        </div>
         <div className="split-card reveal">
           <SectionHeading eyebrow="Principles" title="My QA Engineering Principles" />
           <div className="principle-list">
@@ -483,6 +498,12 @@ WHERE customer_id = 'DEMO_CUSTOMER_001';`}</code></pre>
               </article>
             ))}
           </div>
+        </div>
+        <div className="split-card reveal">
+          <SectionHeading eyebrow="AI-Assisted Testing" title="Using AI to Support QA, Not Replace It" />
+          <PillList items={["Test idea generation", "Edge-case identification", "Test data generation", "Failure-log analysis", "Debugging assistance"]} />
+          <br></br>
+          <p>I use AI-assisted tools selectively to speed up test analysis and preparation — while keeping test design, validation, defect decisions, and release judgment engineer-led.</p>
         </div>
       </section>
 
