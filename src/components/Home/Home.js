@@ -455,7 +455,7 @@ function Home() {
           </div>
           <PillList items={["REST Assured", "Postman", "SQL", "JSON Validation"]} />
           <br></br>
-          <p >I integrate automated tests into CI/CD workflows so regression checks run consistently and provide feedback before release.</p>
+          <p >I validate API functionality, response data, status codes, authentication, and database consistency to ensure reliable backend services.</p>
         </div>
         
       </section>
