@@ -20,6 +20,8 @@ const careerProfile = {
       "TestNG",
       "Page Object Model (POM)",
       "Cucumber BDD",
+      "Data-Driven Testing",
+      "Hybrid Automation Framework",
     ],
 
     programming: [
@@ -44,12 +46,26 @@ const careerProfile = {
     testing: [
       "Manual Testing",
       "Test Case Design",
+      "Test Scenario Design",
+      "Manual Test Case Design",
+      "UI/API/Database Test Scenarios",
       "Functional Testing",
       "Regression Testing",
       "Smoke Testing",
       "Sanity Testing",
       "End-to-End Testing",
       "Cross-Browser Testing",
+      "API Testing",
+      "Database Testing",
+    ],
+
+    performanceTesting: [
+      "JMeter",
+      "Performance Testing",
+      "Load Testing",
+      "Stress Testing",
+      "Response-Time Analysis",
+      "Performance Bottleneck Identification",
     ],
 
     ciCdAndTools: [
@@ -57,13 +73,9 @@ const careerProfile = {
       "GitHub Actions",
       "Maven",
       "Git",
+      "GitHub",
       "Jira",
-    ],
-
-    performanceTesting: [
-      "JMeter",
-      "Load Testing",
-      "Stress Testing",
+      "TestRail",
     ],
 
     methodologies: [
@@ -75,6 +87,17 @@ const careerProfile = {
       "Release Validation",
     ],
   },
+
+  qaWorkflow: [
+    "Requirements and Business Rules",
+    "Test Planning and Coverage",
+    "Manual and Functional Testing",
+    "UI Test Automation",
+    "API and Database Testing",
+    "Cross-Browser and Performance Testing",
+    "CI/CD Test Execution",
+    "Defect Triage and Release Validation",
+  ],
 
   currentExperience: {
     company: "Clikon Technologies Pvt. Ltd.",
@@ -102,7 +125,6 @@ const careerProfile = {
   professionalProjects: [
     {
       name: "E-Retail Inventory Management System",
-
       domain: "E-Retail",
 
       technologies: [
@@ -132,7 +154,6 @@ const careerProfile = {
 
     {
       name: "Find Us Here - IT Help Desk Portal",
-
       domain: "IT Service Management",
 
       technologies: [
@@ -162,7 +183,6 @@ const careerProfile = {
 
     {
       name: "StaffDNA - Healthcare Recruitment Platform",
-
       domain: "Healthcare Recruitment",
 
       technologies: [
@@ -191,7 +211,6 @@ const careerProfile = {
   personalProjects: [
     {
       name: "Playwright E-Commerce Test Automation Framework",
-
       type: "Personal Project",
 
       technologies: [
@@ -226,7 +245,6 @@ const careerProfile = {
 
     {
       name: "Appium Mobile Automation Framework",
-
       type: "Personal Project",
 
       technologies: [
