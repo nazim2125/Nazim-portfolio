@@ -1204,3 +1204,290 @@ pre {
   color: var(--accent);
   flex-shrink: 0;
 }
+/* =========================================
+   AI CAREER CHATBOT
+   ========================================= */
+
+.career-chatbot-button {
+  position: fixed;
+  right: 25px;
+  bottom: 25px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: none;
+  background: #6c63ff;
+  color: #fff;
+  font-size: 28px;
+  cursor: pointer;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+  z-index: 9999;
+  transition: all 0.3s ease;
+}
+
+.career-chatbot-button:hover {
+  transform: scale(1.08);
+}
+
+.career-chatbot-window {
+  position: fixed;
+  right: 25px;
+  bottom: 25px;
+  width: 360px;
+  height: 520px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 9999;
+}
+
+/* Header */
+
+.career-chatbot-header {
+  background: #6c63ff;
+  color: #fff;
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.career-chatbot-header strong {
+  font-size: 16px;
+}
+
+.career-chatbot-status {
+  font-size: 12px;
+  margin-top: 4px;
+  opacity: 0.9;
+}
+
+.career-chatbot-status span {
+  color: #7cff9b;
+}
+
+.career-chatbot-close {
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 28px;
+  cursor: pointer;
+  line-height: 1;
+}
+
+/* Messages */
+
+.career-chatbot-messages {
+  flex: 1;
+  padding: 15px;
+  overflow-y: auto;
+  background: #f7f7f9;
+}
+
+.career-chatbot-bot-message {
+  background: #fff;
+  color: #1f2937;
+  padding: 12px;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  line-height: 1.5;
+  font-size: 14px;
+  border: 1px solid #e5e7eb;
+  overflow-wrap: anywhere;
+}
+
+.career-chatbot-markdown {
+  color: inherit;
+}
+
+.career-chatbot-markdown > :first-child {
+  margin-top: 0;
+}
+
+.career-chatbot-markdown > :last-child {
+  margin-bottom: 0;
+}
+
+.career-chatbot-markdown h1,
+.career-chatbot-markdown h2,
+.career-chatbot-markdown h3,
+.career-chatbot-markdown h4 {
+  color: #111827;
+  font-weight: 700;
+  line-height: 1.25;
+  margin: 14px 0 7px;
+  letter-spacing: 0;
+}
+
+.career-chatbot-markdown h1,
+.career-chatbot-markdown h2 {
+  font-size: 16px;
+}
+
+.career-chatbot-markdown h3,
+.career-chatbot-markdown h4 {
+  font-size: 15px;
+}
+
+.career-chatbot-markdown p {
+  margin: 0 0 10px;
+}
+
+.career-chatbot-markdown strong {
+  color: #111827;
+  font-weight: 700;
+}
+
+.career-chatbot-markdown ul,
+.career-chatbot-markdown ol {
+  margin: 6px 0 12px;
+  padding-left: 20px;
+}
+
+.career-chatbot-markdown li {
+  margin: 4px 0;
+  padding-left: 2px;
+}
+
+.career-chatbot-markdown a {
+  color: #4f46e5;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.career-chatbot-markdown code {
+  background: #f3f4f6;
+  border: 1px solid #e5e7eb;
+  border-radius: 4px;
+  color: #111827;
+  font-size: 0.92em;
+  padding: 1px 4px;
+}
+
+.career-chatbot-table-wrapper {
+  margin: 10px 0 12px;
+  max-width: 100%;
+  overflow-x: auto;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+}
+
+.career-chatbot-markdown table {
+  width: 100%;
+  min-width: 420px;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.career-chatbot-markdown th,
+.career-chatbot-markdown td {
+  border-bottom: 1px solid #e5e7eb;
+  padding: 8px 10px;
+  text-align: left;
+  vertical-align: top;
+}
+
+.career-chatbot-markdown th {
+  background: #f9fafb;
+  color: #111827;
+  font-weight: 700;
+}
+
+.career-chatbot-markdown tr:last-child td {
+  border-bottom: 0;
+}
+
+/* Quick Questions */
+
+.career-chatbot-quick-questions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.career-chatbot-quick-button {
+  background: #fff;
+  color: #1f2937;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  padding: 9px 12px;
+  text-align: left;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.career-chatbot-quick-button:hover {
+  background: #f3f4f6;
+  border-color: #6c63ff;
+}
+
+/* User Message */
+
+.career-chatbot-user-message {
+  background: #6c63ff;
+  color: #fff;
+  padding: 10px 12px;
+  border-radius: 12px;
+  margin-top: 12px;
+  margin-left: 30px;
+  font-size: 14px;
+}
+
+/* Input */
+
+.career-chatbot-input-area {
+  display: flex;
+  padding: 10px;
+  border-top: 1px solid #ddd;
+  background: #fff;
+}
+
+.career-chatbot-input {
+  flex: 1;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  padding: 10px;
+  outline: none;
+  color: #1f2937;
+  background: #fff;
+  font-size: 14px;
+}
+
+.career-chatbot-input:focus {
+  border-color: #6c63ff;
+}
+
+.career-chatbot-send {
+  margin-left: 8px;
+  width: 42px;
+  border: none;
+  border-radius: 10px;
+  background: #6c63ff;
+  color: #fff;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 480px) {
+  .career-chatbot-window {
+    right: 10px;
+    bottom: 10px;
+    width: calc(100% - 20px);
+    height: 75vh;
+  }
+
+  .career-chatbot-button {
+    right: 15px;
+    bottom: 15px;
+  }
+}

@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar";
 import Home from "./components/Home/Home";
 import Footer from "./components/Footer";
 import Resume from "./components/Resume/ResumeNew";
+import CareerChatbot from "./components/CareerChatbot";
 import {
   BrowserRouter as Router,
   Route,
@@ -40,6 +41,7 @@ function App() {
           <Route path="*" element={<Navigate to="/"/>} />
         </Routes>
         <Footer />
+        <CareerChatbot />
       </div>
     </Router>
   );

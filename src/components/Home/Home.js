@@ -573,10 +573,10 @@ function Home() {
         </div>
       </section>
 
-      <a className="sticky-resume" href={resumePdf} download aria-label="Download resume">
+      {/* <a className="sticky-resume" href={resumePdf} download aria-label="Download resume">
         <AiOutlineDownload aria-hidden="true" />
         Resume
-      </a>
+      </a> */}
     </main>
   );
 }
