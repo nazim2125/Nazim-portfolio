@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import { FiMessageCircle } from "react-icons/fi";
 import "../style.css";
 
 const markdownComponents = {
@@ -31,18 +32,16 @@ function CareerChatbot() {
   const [messages, setMessages] = useState([
     {
       sender: "bot",
-      text: "Hi! I'm Nazim's AI Career Assistant. 👋 Ask me about his experience, skills, projects, or QA/SDET expertise.",
+      text: "Ask about Nazim’s QA experience, automation projects, or fit for a role.",
     },
   ]);
 
   const [isLoading, setIsLoading] = useState(false);
 
   const quickQuestions = [
-    "What are Nazim's strongest skills?",
-    "Tell me about his Selenium experience.",
-    "Does Nazim have API testing experience?",
-    "What personal projects has he built?",
-    "How does his experience match a Senior SDET role?",
+    "What has Nazim automated?",
+    "How does Nazim test APIs?",
+    "What can I see on GitHub?",
   ];
 
   const sendMessage = async (text = input) => {
@@ -110,7 +109,7 @@ function CareerChatbot() {
           className="career-chatbot-button"
           aria-label="Open AI Career Assistant"
         >
-          🤖
+          <FiMessageCircle aria-hidden="true" />
         </button>
       )}
 
@@ -119,13 +118,7 @@ function CareerChatbot() {
 
           {/* Header */}
           <div className="career-chatbot-header">
-            <div>
-              <strong>🤖 Nazim AI Career Assistant</strong>
-
-              <div className="career-chatbot-status">
-                <span>●</span> Online
-              </div>
-            </div>
+            <strong>Nazim’s AI Career Assistant</strong>
 
             <button
               onClick={() => setIsOpen(false)}

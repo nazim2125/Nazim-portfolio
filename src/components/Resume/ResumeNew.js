@@ -37,11 +37,11 @@ function ResumeNew() {
       : width - 30;
 
   return (
-    <div>
+    <main className="resume-section" id="main-content" tabIndex={-1}>
       <Particle />
 
       <Container>
-
+        <h1 className="resume-title">Resume</h1>
         <Row className="resume">
           <Document
             file={pdf}
@@ -80,7 +80,7 @@ function ResumeNew() {
           </Button>
         </Row>
       </Container>
-    </div>
+    </main>
   );
 }
 

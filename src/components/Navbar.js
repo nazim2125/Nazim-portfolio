@@ -3,24 +3,23 @@ import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import Container from "react-bootstrap/Container";
 import resumePdf from "../Assets/Mohd Nazim Rasalat QA Automation Engineer CV.pdf";
-import { AiFillGithub, AiFillLinkedin, AiOutlineDownload } from "react-icons/ai";
+import { AiOutlineCheck, AiOutlineDownload } from "react-icons/ai";
+import { useLocation } from "react-router-dom";
 import { BsMoon, BsSun } from "react-icons/bs";
 import { profile } from "../data/portfolioData";
 
 const navLinks = [
-  ["home", "Home"],
-  ["about", "About"],
-  ["skills", "Skills"],
-  ["experience", "Experience"],
   ["projects", "Projects"],
-  ["testing", "Testing Expertise"],
+  ["experience", "Experience"],
+  ["skills", "Skills"],
   ["contact", "Contact"],
 ];
 
 function NavBar() {
   const [expand, updateExpanded] = useState(false);
-  const [navColour, updateNavbar] = useState(false);
-  const [activeSection, setActiveSection] = useState("home");
+  const [activeSection, setActiveSection] = useState(null);
+  const { pathname } = useLocation();
+  const homePrefix = pathname === "/resume" ? "/" : "";
   const [theme, setTheme] = useState("dark");
 
   useEffect(() => {
@@ -29,19 +28,16 @@ function NavBar() {
 
   useEffect(() => {
     const scrollHandler = () => {
-      updateNavbar(window.scrollY >= 20);
-
       const sections = navLinks.map(([id]) => document.getElementById(id)).filter(Boolean);
-      let current = sections[0];
+      let current;
       sections.forEach((section) => {
         if (section.getBoundingClientRect().top <= 120) {
           current = section;
         }
       });
 
-      if (current) {
-        setActiveSection(current.id);
-      }
+      const atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2;
+      setActiveSection((atBottom ? sections[sections.length - 1] : current)?.id);
     };
 
     scrollHandler();
@@ -50,26 +46,28 @@ function NavBar() {
     return () => {
       window.removeEventListener("scroll", scrollHandler);
     };
-  }, []);
+  }, [pathname]);
 
   const closeMenu = () => updateExpanded(false);
 
   return (
     <Navbar
       expanded={expand}
+      onToggle={updateExpanded}
       fixed="top"
       expand="lg"
-      className={navColour ? "site-nav sticky" : "site-nav"}
+      className="site-nav"
     >
       <Container>
-        <Navbar.Brand href="#home" className="brand-mark" onClick={closeMenu}>
-          Nazim.<span className="hero-highlight">dev</span>
+        <Navbar.Brand href={`${homePrefix}#home`} className="brand-mark" onClick={closeMenu}>
+          <AiOutlineCheck aria-hidden="true" />
+          {profile.shortName} Rasalat
         </Navbar.Brand>
 
         <Navbar.Toggle
           aria-controls="responsive-navbar-nav"
-          aria-label="Toggle navigation"
-          onClick={() => updateExpanded(expand ? false : "expanded")}
+          aria-expanded={expand}
+          label="Toggle navigation"
         >
           <span />
           <span />
@@ -81,7 +79,8 @@ function NavBar() {
             {navLinks.map(([id, label]) => (
               <Nav.Item key={id}>
                 <Nav.Link
-                  href={`#${id}`}
+                  href={`${homePrefix}#${id}`}
+                  aria-current={activeSection === id ? "location" : undefined}
                   className={activeSection === id ? "active" : ""}
                   onClick={closeMenu}
                 >
@@ -92,12 +91,6 @@ function NavBar() {
           </Nav>
 
           <div className="nav-actions">
-            <a href={profile.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">
-              <AiFillGithub aria-hidden="true" />
-            </a>
-            <a href={profile.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
-              <AiFillLinkedin aria-hidden="true" />
-            </a>
             <a className="resume-nav-btn" href={resumePdf} download>
               <AiOutlineDownload aria-hidden="true" />
               Resume

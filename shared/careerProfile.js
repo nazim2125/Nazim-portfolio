@@ -11,7 +11,7 @@ const careerProfile = {
   },
 
   professionalSummary:
-    "QA Automation Engineer with 2+ years of hands-on experience testing enterprise web applications across E-Retail, IT Service Management, and Healthcare Recruitment domains. Experienced in building and maintaining Selenium WebDriver with Java and Playwright with TypeScript automation frameworks using Page Object Model and TestNG. Strong hands-on experience in Manual, UI, API, database, functional, regression, smoke, sanity, end-to-end, and cross-browser testing, with API automation using REST Assured and Postman and backend validation using SQL. Experienced in integrating automation suites with Jenkins and GitHub Actions and working with developers and product owners in Agile release cycles.",
+    "QA Automation Engineer with 2+ years of hands-on experience testing enterprise web applications across fintech, e-retail, IT service management, and healthcare recruitment. Experienced in building and maintaining Selenium WebDriver with Java and Playwright with TypeScript automation frameworks using Page Object Model and TestNG. Strong hands-on experience in Manual, UI, API, database, functional, regression, smoke, sanity, end-to-end, and cross-browser testing, with API automation using REST Assured and Postman and backend validation using SQL. Experienced in integrating automation suites with Jenkins and GitHub Actions and working with developers and product owners in Agile release cycles.",
 
   skills: {
     automationAndFrameworks: [
@@ -100,10 +100,21 @@ const careerProfile = {
   ],
 
   currentExperience: {
+    company: "RNFI Services Limited",
+    role: "QA Automation Engineer",
+    duration: "September 2026 to present",
+    highlights: [
+      "Develops Playwright and TypeScript regression tests using page objects, reusable fixtures, and controlled test data.",
+      "Tests role permissions, restricted URLs, and form validation for the CSP Portal.",
+      "Uses Postman to inspect REST APIs and verifies that onboarding and approval updates stay consistent between the CSP Portal and FieldX.",
+    ],
+  },
+
+  previousExperience: {
     company: "Clikon Technologies Pvt. Ltd.",
     role: "QA Automation Engineer",
     location: "Noida",
-    duration: "June 2024 - Present",
+    duration: "Started June 2024",
 
     highlights: [
       "Designed and executed manual and automated test cases covering 300+ UI, API, and database test scenarios.",
@@ -123,6 +134,17 @@ const careerProfile = {
   },
 
   professionalProjects: [
+    {
+      name: "RNFI CSP Portal and FieldX Mobile Application",
+      company: "RNFI Services Limited",
+      domain: "FinTech and banking",
+      technologies: ["Playwright", "TypeScript", "Postman", "REST APIs", "Android Studio", "Excel"],
+      achievements: [
+        "Tested bank-agent onboarding, service-point assignment, replacement requests, branch and area mapping, and document approvals.",
+        "Verified permission-based sidebar visibility, restricted URL access, and onboarding stage transitions.",
+        "Checked data consistency across the web portal, mobile app, and API responses.",
+      ],
+    },
     {
       name: "E-Retail Inventory Management System",
       domain: "E-Retail",
